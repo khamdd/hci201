@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hci201/component/createTrip.dart';
 import 'package:hci201/component/occurTripPage.dart';
 import 'package:hci201/component/onGoingTripPage.dart';
 
@@ -19,7 +20,9 @@ class _TripPageState extends State<TripPage> {
             automaticallyImplyLeading: false,
             title: const Text("Hành Trình"),
             actions: [
-              IconButton(onPressed: () {}, icon: const Icon(Icons.add))
+              IconButton(onPressed: () {
+                Navigator.push(context, MaterialPageRoute(builder: (context)=>const CreateTrip()));
+              }, icon: const Icon(Icons.add))
             ],
             bottom: const TabBar(
               tabs: [
