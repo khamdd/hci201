@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
 class CreateTrip extends StatefulWidget {
   const CreateTrip({Key? key}) : super(key: key);
@@ -8,6 +9,13 @@ class CreateTrip extends StatefulWidget {
 }
 
 class _CreateTripState extends State<CreateTrip> {
+  DateTime initialDate = DateTime.now();
+  DateTime? datePicked;
+  String? formattedDate;
+  TimeOfDay initialTime = const TimeOfDay(hour: 9, minute: 0);
+  TimeOfDay? pickedTime;
+  String? formattedTime;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,89 +31,183 @@ class _CreateTripState extends State<CreateTrip> {
         }),
         title: const Text("Tạo chuyến đi"),
       ),
-      body: Column(
-        children: [
-          Row(
-            children: const [
-              Text("Xuất phát"),
-              TextField(
-                obscureText: true,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Password',
+      body: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: const [
+                Text(
+                  "Xuất phát: ",
+                  style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
                 ),
-              ),
-            ],
-          ),
-          Row(
-            children: const [
-              Text("Điểm đến"),
-              TextField(
-                obscureText: true,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Password',
-                ),
-              ),
-            ],
-          ),
-          Row(
-            children: const [
-              Text("Ngày xuất phát"),
-              TextField(
-                obscureText: true,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Password',
-                ),
-              ),
-            ],
-          ),
-          Row(
-            children: const [
-              Text("Thời gian"),
-              TextField(
-                obscureText: true,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Password',
-                ),
-              ),
-            ],
-          ),
-          Row(
-            children: [
-              const Text("Thành viên"),
-              IconButton(onPressed: () {}, icon: const Icon(Icons.add)),
-            ],
-          ),
-          Row(
-            children: const [
-              Text("Tên nhóm"),
-              TextField(
-                obscureText: true,
-                decoration: InputDecoration(
-                  border: OutlineInputBorder(),
-                  labelText: 'Password',
-                ),
-              ),
-            ],
-          ),
-          Row(children: const [
-            Text("Mô tả chuyến đi"),
-            TextField(
-              obscureText: true,
-              decoration: InputDecoration(
-                border: OutlineInputBorder(),
-                labelText: 'Password',
-              ),
+                SizedBox(
+                    height: 40,
+                    width: 200,
+                    child: TextField(
+                      decoration: InputDecoration(
+                        filled: true,
+                        labelText: 'Nhập địa điểm...',
+                      ),
+                    )),
+              ],
             ),
-          ]),
-          ElevatedButton(
-            onPressed: () {},
-            child: const Text("Tạo"),
-          ),
-        ],
+            const SizedBox(
+              height: 12.0,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: const [
+                Text(
+                  "Điểm đến:",
+                  style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+                ),
+                SizedBox(
+                    height: 40,
+                    width: 200,
+                    child: TextField(
+                      decoration: InputDecoration(
+                        filled: true,
+                        labelText: 'Nhập điểm đến...',
+                      ),
+                    )),
+              ],
+            ),
+            const SizedBox(
+              height: 12.0,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Text(
+                  "Ngày xuất phát:",
+                  style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+                ),
+                SizedBox(
+                    width: 200,
+                    child: ElevatedButton(
+                      onPressed: () {
+                        FocusScope.of(context).requestFocus(FocusNode());
+                        showDatePicker(
+                          context: context,
+                          initialDate: datePicked ?? initialDate,
+                          firstDate: DateTime(2000),
+                          lastDate: DateTime(2100),
+                        ).then((date) {
+                          setState(() {
+                            if (date != null) {
+                              initialDate = date;
+                              datePicked = date;
+                            }
+                            formattedDate = DateFormat('yyyy-MM-dd')
+                                .format(datePicked ?? initialDate);
+                          });
+                        });
+                      },
+                      child: Text(formattedDate ?? "Chọn ngày xuất phát"),
+                    )),
+              ],
+            ),
+            const SizedBox(
+              height: 12.0,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Text(
+                  "Thời gian:",
+                  style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+                ),
+                SizedBox(
+                  width: 200,
+                  child: ElevatedButton(
+                    onPressed: () {
+                      showTimePicker(
+                        context: context,
+                        initialTime: pickedTime ?? initialTime,
+                      ).then((time) {
+                        setState(() {
+                          if (time != null) {
+                            initialTime = time;
+                            pickedTime = time;
+                          }
+                          formattedTime = pickedTime == null
+                              ? initialTime.format(context)
+                              : pickedTime!.format(context);
+                        });
+                      });
+                    },
+                    child: Text(formattedTime ?? "Chọn thời gian"),
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(
+              height: 12.0,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                const Text(
+                  "Thành viên:",
+                  style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+                ),
+                IconButton(onPressed: () {}, icon: const Icon(Icons.add))
+              ],
+            ),
+            const SizedBox(
+              height: 12.0,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: const [
+                Text(
+                  "Tên nhóm:",
+                  style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+                ),
+                SizedBox(
+                    height: 40,
+                    width: 200,
+                    child: TextField(
+                      decoration: InputDecoration(
+                        filled: true,
+                        labelText: 'Nhập tên nhóm...',
+                      ),
+                    )),
+              ],
+            ),
+            const SizedBox(
+              height: 12.0,
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: const [
+                Text(
+                  "Mô tả chuyến đi:",
+                  style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+                ),
+                SizedBox(
+                    height: 40,
+                    width: 200,
+                    child: TextField(
+                      decoration: InputDecoration(
+                        filled: true,
+                        labelText: 'Nhập mô tả...',
+                      ),
+                    )),
+              ],
+            ),
+            const SizedBox(
+              height: 44.0,
+            ),
+            ElevatedButton(
+              onPressed: () {},
+              child: const Text("Tạo"),
+            ),
+          ],
+        ),
       ),
     );
   }
