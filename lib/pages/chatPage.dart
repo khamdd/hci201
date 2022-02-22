@@ -12,20 +12,20 @@ class ChatPage extends StatefulWidget {
 
 class _ChatPageState extends State<ChatPage> {
   List<ChatUsers> chatUsers = [
-    ChatUsers("Jane Russel", "Awesome Setup", "assets/images/img.png", "Now"),
-    ChatUsers("Glady's Murphy", "That's Great", "assets/images/img_1.png",
+    ChatUsers("Team7777", "Đã đủ thành viên", "assets/images/img.png", "Now"),
+    ChatUsers("DL2021", "Chuyến đi cuối năm", "assets/images/img_1.png",
         "Yesterday"),
-    ChatUsers("Jorge Henry", "Hey where are you?", "assets/images/img_2.png",
+    ChatUsers("Xuyen Viet 22", "tour dài..........", "assets/images/img_2.png",
         "31 Mar"),
-    ChatUsers("Philip Fox", "Busy! Call me in 20 mins",
+    ChatUsers("Vung Tau 24h", "Hồ Cốc............",
         "assets/images/img_3.png", "28 Mar"),
-    ChatUsers("Debra Hawkins", "Thankyou, It's awesome",
+    ChatUsers("Tiền Trạm", "Rừng rừng...............",
         "assets/images/img_4.png", "23 Mar"),
-    ChatUsers("Jacob Pena", "will update you in evening",
+    ChatUsers("Nha Trang - Sai Gon", "tour bạo lưc",
         "assets/images/img_5.png", "17 Mar"),
-    ChatUsers("Andrey Jones", "Can you please share the file?",
+    ChatUsers("Tây Bắc", "dậy sớm săn mây",
         "assets/images/img_6.png", "24 Feb"),
-    ChatUsers("John Wick", "How are you?", "assets/images/img_7.png", "18 Feb"),
+    ChatUsers("CG 24h", "chuyến đi sau dịch ", "assets/images/img_7.png", "18 Feb"),
   ];
 
   @override
