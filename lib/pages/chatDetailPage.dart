@@ -3,17 +3,22 @@ import 'package:flutter/material.dart';
 import '../model/chatMessageModel.dart';
 
 class ChatDetailPage extends StatefulWidget {
+  String name;
+  String imageUrl;
+
+  ChatDetailPage(this.name,this.imageUrl);
+
   @override
   _ChatDetailPageState createState() => _ChatDetailPageState();
 }
 
 class _ChatDetailPageState extends State<ChatDetailPage> {
   List<ChatMessage> messages = [
-    ChatMessage("Hello, Will", "receiver"),
-    ChatMessage("How have you been?", "receiver"),
-    ChatMessage("Hey Kriss, I am doing fine dude. wbu?", "sender"),
-    ChatMessage("ehhhh, doing OK.", "receiver"),
-    ChatMessage("Is there any thing wrong?", "sender"),
+    ChatMessage("Chào mọi người", "receiver"),
+    ChatMessage("Chúng ta có bao nhiêu thành viên?", "receiver"),
+    ChatMessage("Dự định tầm 5 người. Mọi người thấy thế nào?", "sender"),
+    ChatMessage("OK.", "receiver"),
+    ChatMessage("..............", "sender"),
   ];
   @override
   Widget build(BuildContext context) {
@@ -40,7 +45,7 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
                   width: 2,
                 ),
                 CircleAvatar(
-                  backgroundImage: AssetImage("assets/images/img.png"),
+                  backgroundImage: AssetImage(widget.imageUrl),
                   maxRadius: 20,
                 ),
                 SizedBox(
@@ -52,7 +57,7 @@ class _ChatDetailPageState extends State<ChatDetailPage> {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Text(
-                        "Kriss Benwat",
+                        widget.name,
                         style: TextStyle(
                             fontSize: 16, fontWeight: FontWeight.w600),
                       ),
