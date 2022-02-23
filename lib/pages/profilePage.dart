@@ -62,18 +62,17 @@ class _ProfilePageState extends State<ProfilePage> {
               ),
             ),
             const SizedBox(height: 30),
-            buildTextField("Name: ", "Dang Duong Kham", false),
-            buildTextField(
-                "Location: ", "83/11 duong Le Loi, Q1, TP HCM", false),
-            buildTextField("Phone: ", "0123456789", false),
-            buildTextField("Mo ta: ", "Dep trai", false),
-            const SizedBox(height: 30),
+            buildTextField("Họ và tên: ", "Đặng Dương Khâm", false),
+            buildTextField("Địa chỉ: ", "Bà Hom, Q6, TP HCM", false),
+            buildTextField("Số điện thoại: ", "0936088291", false),
+            buildTextField("Mô tả: ", "Đẹp trai", false),
+            const SizedBox(height: 20),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 OutlinedButton(
                   onPressed: () {},
-                  child: const Text("CANCEL",
+                  child: const Text("Hủy",
                       style: TextStyle(
                         fontSize: 15,
                         letterSpacing: 2,
@@ -86,7 +85,7 @@ class _ProfilePageState extends State<ProfilePage> {
                 ),
                 ElevatedButton(
                   onPressed: () {},
-                  child: const Text("SAVE",
+                  child: const Text("Lưu",
                       style: TextStyle(
                         fontSize: 15,
                         letterSpacing: 2,
