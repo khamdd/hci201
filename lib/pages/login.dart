@@ -51,9 +51,37 @@ class Login extends StatelessWidget {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => const MainPage()));
               },
+
+
             ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: const [
+                 SizedBox(
+                   child: Text(
+                   'or'
+
+                ),
+                 ),
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: const<Widget> [
+                Icon(
+                  Icons.facebook,
+                  color: Colors.blueAccent,
+                  size: 34,
+                ),
+                Icon(
+                  Icons.email,
+                  color: Colors.deepOrangeAccent,
+                  size: 34,
+                )
+              ],
+            ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
                 TextButton(
                   child: const Text("Đăng Ký"),
