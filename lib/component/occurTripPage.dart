@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:hci201/component/createTrip.dart';
+import 'package:hci201/component/memberList.dart';
+import 'package:hci201/model/chatMessageModel.dart';
+import 'package:hci201/pages/mainPage.dart';
+
+import '../pages/chatDetailPage.dart';
 
 class OccurTripPage extends StatefulWidget {
   const OccurTripPage({Key? key}) : super(key: key);
@@ -160,21 +165,51 @@ class HasTrip extends StatelessWidget {
             crossAxisSpacing: 10,
             mainAxisSpacing: 10,
             crossAxisCount: 2,
-            children: const <Widget>[
+            children: <Widget>[
               CustomeGridButton(
                   color: Colors.blue,
                   label: "Xem thành viên",
-                  icon: Icons.group),
-              CustomeGridButton(
-                  color: Colors.blue, label: "Xem bản đồ", icon: Icons.map),
+                  icon: Icons.group,
+                  action: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) {
+                      return const MemberList();
+                    }));
+                  }),
               CustomeGridButton(
                   color: Colors.blue,
-                  label: "Báo cáo sự cố",
-                  icon: Icons.warning),
+                  label: "Xem bản đồ",
+                  icon: Icons.map,
+                  action: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) {
+                      return const MainPage();
+                    }));
+                  }),
+              CustomeGridButton(
+                color: Colors.blue,
+                label: "Báo cáo sự cố",
+                icon: Icons.warning,
+                action: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) {
+                    return ChatDetailPage(
+                      "Vịnh Hạ Long",
+                      "assets/images/img.png",
+                      newChat: ChatMessage(
+                          "Tôi đang gặp sự cố, vị trí hiện tại: ", "sender"),
+                      longtitude: "105.6970962607559",
+                      latitude: "9.703045952601762",
+                    );
+                  }));
+                },
+              ),
               CustomeGridButton(
                   color: Colors.red,
                   label: "Kết thúc chuyến đi",
-                  icon: Icons.exit_to_app),
+                  icon: Icons.exit_to_app,
+                  action: () {
+                    debugPrint("Clicked kết thúc chuyến đi");
+                  }),
             ],
           ),
         )
@@ -185,19 +220,24 @@ class HasTrip extends StatelessWidget {
 
 class CustomeGridButton extends StatelessWidget {
   const CustomeGridButton(
-      {Key? key, required this.color, required this.label, required this.icon})
+      {Key? key,
+      required this.color,
+      required this.label,
+      required this.icon,
+      required this.action})
       : super(key: key);
   final Color color;
   final String label;
   final IconData icon;
+  final Function action;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
       height: 80,
-      child: InkWell(
+      child: GestureDetector(
         onTap: () {
-          debugPrint("alo alo");
+          action();
         },
         child: Container(
           decoration: BoxDecoration(

@@ -5,23 +5,35 @@ import '../model/chatMessageModel.dart';
 class ChatDetailPage extends StatefulWidget {
   String name;
   String imageUrl;
+  ChatMessage? newChat;
+  String? longtitude;
+  String? latitude;
 
-  ChatDetailPage(this.name,this.imageUrl);
+  ChatDetailPage(this.name, this.imageUrl,
+      {Key? key, this.newChat, this.longtitude, this.latitude})
+      : super(key: key);
 
   @override
   _ChatDetailPageState createState() => _ChatDetailPageState();
 }
 
+List<ChatMessage> messages = [
+  ChatMessage("Chào mọi người", "receiver"),
+  ChatMessage("Chúng ta có bao nhiêu thành viên?", "receiver"),
+  ChatMessage("Dự định tầm 5 người. Mọi người thấy thế nào?", "sender"),
+  ChatMessage("OK.", "receiver"),
+  ChatMessage("..............", "sender"),
+];
+
 class _ChatDetailPageState extends State<ChatDetailPage> {
-  List<ChatMessage> messages = [
-    ChatMessage("Chào mọi người", "receiver"),
-    ChatMessage("Chúng ta có bao nhiêu thành viên?", "receiver"),
-    ChatMessage("Dự định tầm 5 người. Mọi người thấy thế nào?", "sender"),
-    ChatMessage("OK.", "receiver"),
-    ChatMessage("..............", "sender"),
-  ];
   @override
   Widget build(BuildContext context) {
+    if (widget.newChat != null) {
+      widget.newChat?.messageContent +=
+          widget.longtitude! + ', ' + widget.latitude!;
+      messages.add(widget.newChat!);
+    }
+
     return Scaffold(
       appBar: AppBar(
         elevation: 0,

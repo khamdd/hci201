@@ -9,12 +9,16 @@ class Login extends StatelessWidget {
     return Scaffold(
       body: SafeArea(
           child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 25.0),
+        padding: const EdgeInsets.symmetric(horizontal: 24.0),
         color: Colors.white,
         child: Column(
           children: [
-            const SizedBox(
-              height: 80.0,
+            SizedBox(
+              child: Padding(
+                padding: const EdgeInsets.only(top: 100.0),
+                child: Image.asset("road.png"),
+              ),
+              height: 200.0,
             ),
             Container(), //put image here
             const Text(
@@ -51,48 +55,64 @@ class Login extends StatelessWidget {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => const MainPage()));
               },
-
-
+            ),
+            const SizedBox(
+              height: 12.0,
             ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: const [
-                 SizedBox(
-                   child: Text(
-                   'or'
-
+                SizedBox(
+                  child: Text('Or'),
                 ),
-                 ),
               ],
             ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: const<Widget> [
-                Icon(
-                  Icons.facebook,
-                  color: Colors.blueAccent,
-                  size: 34,
-                ),
-                Icon(
-                  Icons.email,
-                  color: Colors.deepOrangeAccent,
-                  size: 34,
-                )
-              ],
+            const SizedBox(
+              height: 12.0,
             ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                TextButton(
-                  child: const Text("Đăng Ký"),
-                  onPressed: () {},
+                SizedBox(
+                  width: 160.0,
+                  child: Column(
+                    children: [
+                      const Icon(
+                        Icons.facebook,
+                        color: Colors.blueAccent,
+                        size: 34,
+                      ),
+                      TextButton(
+                        child: const Text(
+                          "Đăng Ký",
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                        onPressed: () {},
+                      ),
+                    ],
+                  ),
                 ),
-                TextButton(
-                  child: const Text("Quên mật khẩu?"),
-                  onPressed: () {},
+                SizedBox(
+                  width: 160.0,
+                  child: Column(
+                    children: [
+                      const Icon(
+                        Icons.email,
+                        color: Colors.deepOrangeAccent,
+                        size: 34,
+                      ),
+                      TextButton(
+                        child: const Text(
+                          "Quên mật khẩu?",
+                          style: TextStyle(fontWeight: FontWeight.bold),
+                        ),
+                        onPressed: () {},
+                      ),
+                    ],
+                  ),
                 )
               ],
-            )
+            ),
           ],
         ),
       )),
