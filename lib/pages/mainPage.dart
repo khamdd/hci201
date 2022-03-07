@@ -20,8 +20,8 @@ class _MainPageState extends State<MainPage> {
   }
 
   static const List<Widget> _widgetOptions = <Widget>[
-    HomePage(),
     TripPage(),
+    HomePage(),
     ChatPage(),
     ProfilePage(),
   ];
@@ -38,7 +38,7 @@ class _MainPageState extends State<MainPage> {
             backgroundColor: Colors.blue,
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.car_rental),
+            icon: Icon(Icons.map),
             label: 'Trip',
             backgroundColor: Colors.blue,
           ),

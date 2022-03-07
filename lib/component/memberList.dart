@@ -8,24 +8,25 @@ class MemberList extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         title: const Text("Thành viên nhóm"),
+        actions: [IconButton(onPressed: () {}, icon: const Icon(Icons.add))],
       ),
       body: SafeArea(
         child: Container(
           padding: const EdgeInsets.all(20.0),
-          decoration: const BoxDecoration(color: Colors.blue),
+          decoration: const BoxDecoration(color: Colors.white),
           child: Column(
             children: [
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Container(
+                  SizedBox(
                     height: 70.0,
                     child: Image.asset("assets/images/img_5.png"),
                   ),
                   const Text(
                     "Nguyễn Văn A",
                     style: TextStyle(
-                      color: Colors.white,
+                      color: Colors.blue,
                       fontSize: 20.0,
                     ),
                   ),
@@ -37,14 +38,14 @@ class MemberList extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Container(
+                  SizedBox(
                     height: 70.0,
                     child: Image.asset("assets/images/img_2.png"),
                   ),
                   const Text(
                     "Nguyễn Văn B",
                     style: TextStyle(
-                      color: Colors.white,
+                      color: Colors.blue,
                       fontSize: 20.0,
                     ),
                   ),
@@ -63,7 +64,7 @@ class MemberList extends StatelessWidget {
                   const Text(
                     "Nguyễn Thị D",
                     style: TextStyle(
-                      color: Colors.white,
+                      color: Colors.blue,
                       fontSize: 20.0,
                     ),
                   ),
@@ -82,11 +83,17 @@ class MemberList extends StatelessWidget {
                   const Text(
                     "Nguyễn Nguyễn",
                     style: TextStyle(
-                      color: Colors.white,
+                      color: Colors.blue,
                       fontSize: 20.0,
                     ),
                   ),
                 ],
+              ),
+              const SizedBox(
+                height: 24.0,
+              ),
+              const Divider(
+                height: 5.0,
               )
             ],
           ),

@@ -11,6 +11,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  dcdg: ^4.0.1
 
   cupertino_icons: ^1.0.2
   google_maps_flutter: ^2.1.1
@@ -29,6 +30,11 @@ flutter:
   assets:
     - road.png
     - assets/images/
+  fonts:
+    - family: Neatments
+      fonts:
+        - asset: assets/fonts/Neatments.otf
+          weight: 700
 
   
   
