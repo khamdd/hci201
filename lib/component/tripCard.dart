@@ -21,6 +21,7 @@ class TripCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
+            padding: const EdgeInsets.symmetric(horizontal: 8.0),
             height: 120,
             width: double.infinity,
             alignment: Alignment.centerLeft,
@@ -28,18 +29,16 @@ class TripCard extends StatelessWidget {
               border: Border.all(color: Colors.blueAccent),
               borderRadius: const BorderRadius.all(Radius.circular(6.0)),
             ),
-
-
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text((' ')+destination+' - '+date, style: const TextStyle(
-                  fontSize: 20,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.deepOrangeAccent,
-                )),
+                Text(destination + ' - ' + date,
+                    style: const TextStyle(
+                      fontSize: 20,
+                      fontWeight: FontWeight.bold,
+                      color: Colors.deepOrangeAccent,
+                    )),
                 Row(
-
                   children: [
                     TextButton(
                       style: TextButton.styleFrom(
@@ -48,30 +47,24 @@ class TripCard extends StatelessWidget {
                         textStyle: const TextStyle(fontSize: 16),
                       ),
                       onPressed: () {},
-                      child: const Text('Accept'),
+                      child: const Text('Accept',
+                          style: TextStyle(
+                              fontSize: 20, fontWeight: FontWeight.bold)),
                     ),
                     TextButton(
                       style: TextButton.styleFrom(
                         padding: const EdgeInsets.all(16.0),
                         primary: Colors.blueAccent,
                         textStyle: const TextStyle(fontSize: 16),
-
                       ),
                       onPressed: null,
                       child: const Text('Start'),
                     )
                   ],
                 )
-
               ],
-
-
-              ),
-
-            )
-
-
-
+            ),
+          )
         ],
       ),
     );

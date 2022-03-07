@@ -18,15 +18,35 @@ class _TripPageState extends State<TripPage> {
       child: Scaffold(
           appBar: AppBar(
             automaticallyImplyLeading: false,
-            title: const Text("Hành Trình"),
+            title: const Text("Chuyến đi"),
             actions: [
-              IconButton(onPressed: () {
-                Navigator.push(context, MaterialPageRoute(builder: (context)=>const CreateTrip()));
-              }, icon: const Icon(Icons.add))
+              TextButton(
+                style: TextButton.styleFrom(
+                    primary: Theme.of(context).colorScheme.onPrimary),
+                onPressed: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => const CreateTrip()));
+                },
+                child: const Text(
+                  'Tạo chuyến đi',
+                  style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
+                ),
+              ),
+              // IconButton(
+
+              //     onPressed: () {
+              // Navigator.push(
+              //     context,
+              //     MaterialPageRoute(
+              //         builder: (context) => const CreateTrip()));
+              //     },
+              //     icon: const Icon(Icons.add))
             ],
             bottom: const TabBar(
               tabs: [
-                Tab(child: Text("Diễn ra")),
+                Tab(child: Text("Đang diễn ra")),
                 Tab(child: Text("Sắp tới")),
               ],
             ),

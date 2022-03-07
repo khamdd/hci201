@@ -31,6 +31,7 @@ class _CreateTripState extends State<CreateTrip> {
         }),
         title: const Text("Tạo chuyến đi"),
       ),
+      resizeToAvoidBottomInset: false,
       body: Padding(
         padding: const EdgeInsets.all(20.0),
         child: Column(
@@ -154,7 +155,28 @@ class _CreateTripState extends State<CreateTrip> {
                   "Thành viên:",
                   style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
                 ),
-                IconButton(onPressed: () {}, icon: const Icon(Icons.add))
+                Container(
+                  height: 40.0,
+                  width: 200,
+                  decoration: const BoxDecoration(
+                      color: Colors.blue,
+                      borderRadius: BorderRadius.all(Radius.circular(5.0))),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.end,
+                    children: [
+                      const Text(
+                        "Thêm thành viên",
+                        style: TextStyle(
+                            color: Colors.white, fontWeight: FontWeight.bold),
+                      ),
+                      IconButton(
+                        onPressed: () {},
+                        icon: const Icon(Icons.add),
+                        color: Colors.white,
+                      )
+                    ],
+                  ),
+                )
               ],
             ),
             const SizedBox(

@@ -7,92 +7,90 @@ class Login extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       body: SafeArea(
           child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 25.0),
-        color: Colors.white,
+        decoration: const BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage("assets/images/loginBackground2.png"),
+                fit: BoxFit.cover)),
+        padding: const EdgeInsets.symmetric(horizontal: 24.0),
         child: Column(
           children: [
-            const SizedBox(
-              height: 80.0,
-            ),
-            Container(), //put image here
-            const Text(
-              "Đăng Nhập",
-              style: TextStyle(
-                color: Colors.blue,
-                fontSize: 32,
+            Container(
+              decoration: BoxDecoration(
+                  border: Border.all(color: Colors.transparent),
+                  borderRadius: const BorderRadius.all(Radius.circular(30.0)),
+                  color: const Color.fromARGB(125, 255, 255, 255)),
+              child: Column(
+                children: [
+                  Container(
+                    alignment: Alignment.center,
+                    height: 180.0,
+                    child: const Text("OurTrip",
+                        style: TextStyle(
+                          fontSize: 44.0,
+                          fontWeight: FontWeight.bold,
+                          color: Colors.blue,
+                          fontStyle: FontStyle.italic,
+                          letterSpacing: 4.0,
+                        )),
+                  ),
+                  TextFormField(
+                    decoration: const InputDecoration(
+                      icon: Icon(Icons.local_phone_rounded),
+                      hintText: 'Nhập số điện thoại',
+                      labelText: 'Số điện thoại',
+                    ),
+                    onSaved: (String? value) {},
+                  ),
+                  TextFormField(
+                    decoration: const InputDecoration(
+                      icon: Icon(Icons.lock),
+                      hintText: 'Nhập mật khẩu',
+                      labelText: 'Mật khẩu',
+                    ),
+                    onSaved: (String? value) {},
+                  ),
+                  const SizedBox(
+                    height: 8.0,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        TextButton(
+                          child: const Text(
+                            "Đăng Ký",
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                          onPressed: () {},
+                        ),
+                        TextButton(
+                          child: const Text(
+                            "Quên mật khẩu?",
+                            style: TextStyle(fontWeight: FontWeight.bold),
+                          ),
+                          onPressed: () {},
+                        ),
+                      ],
+                    ),
+                  ),
+                  ElevatedButton(
+                    child: const Text(
+                      "Đăng Nhập",
+                    ),
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const MainPage()));
+                    },
+                  ),
+                ],
               ),
             ),
-            TextFormField(
-              decoration: const InputDecoration(
-                icon: Icon(Icons.local_phone_rounded),
-                hintText: 'Nhập số điện thoại',
-                labelText: 'Số điện thoại',
-              ),
-              onSaved: (String? value) {},
-            ),
-            TextFormField(
-              decoration: const InputDecoration(
-                icon: Icon(Icons.lock),
-                hintText: 'Nhập mật khẩu',
-                labelText: 'Mật khẩu',
-              ),
-              onSaved: (String? value) {},
-            ),
-            const SizedBox(
-              height: 20.0,
-            ),
-            ElevatedButton(
-              child: const Text(
-                "Đăng Nhập",
-              ),
-              onPressed: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => const MainPage()));
-              },
-
-
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: const [
-                 SizedBox(
-                   child: Text(
-                   'or'
-
-                ),
-                 ),
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: const<Widget> [
-                Icon(
-                  Icons.facebook,
-                  color: Colors.blueAccent,
-                  size: 34,
-                ),
-                Icon(
-                  Icons.email,
-                  color: Colors.deepOrangeAccent,
-                  size: 34,
-                )
-              ],
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceAround,
-              children: [
-                TextButton(
-                  child: const Text("Đăng Ký"),
-                  onPressed: () {},
-                ),
-                TextButton(
-                  child: const Text("Quên mật khẩu?"),
-                  onPressed: () {},
-                )
-              ],
-            )
           ],
         ),
       )),

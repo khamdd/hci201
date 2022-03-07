@@ -2,6 +2,9 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
+import 'package:hci201/model/chatMessageModel.dart';
+import 'package:hci201/pages/chatDetailPage.dart';
+import 'package:hci201/pages/chatPage.dart';
 import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 
 class HomePage extends StatelessWidget {
@@ -45,7 +48,19 @@ class MapSampleState extends State<MapSample> {
         ],
       ),
       floatingActionButton: FloatingActionButton.extended(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(context, MaterialPageRoute(builder: (context) {
+            return ChatDetailPage(
+              "Vịnh Hạ Long",
+              "assets/images/img.png",
+              newChat: ChatMessage(
+                  "Tôi đang gặp sự cố, vị trí hiện tại: ", "sender"),
+              longtitude: "105.6970962607559",
+              latitude: "9.703045952601762",
+            );
+          }));
+          //"105.6970962607559", "9.703045952601762"
+        },
         label: const Text('Báo cáo sự cố'),
         icon: const Icon(Icons.warning),
         backgroundColor: Colors.red,
