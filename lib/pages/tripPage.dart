@@ -20,29 +20,30 @@ class _TripPageState extends State<TripPage> {
             automaticallyImplyLeading: false,
             title: const Text("Chuyến đi"),
             actions: [
-              TextButton(
-                style: TextButton.styleFrom(
-                    primary: Theme.of(context).colorScheme.onPrimary),
-                onPressed: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const CreateTrip()));
-                },
-                child: const Text(
-                  'Tạo chuyến đi',
-                  style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
-                ),
-              ),
-              // IconButton(
-
-              //     onPressed: () {
-              // Navigator.push(
-              //     context,
-              //     MaterialPageRoute(
-              //         builder: (context) => const CreateTrip()));
-              //     },
-              //     icon: const Icon(Icons.add))
+              // TextButton(
+              //   style: TextButton.styleFrom(
+              //       primary: Theme.of(context).colorScheme.onPrimary),
+              //   onPressed: () {
+              //     Navigator.push(
+              //         context,
+              //         MaterialPageRoute(
+              //             builder: (context) => const CreateTrip()));
+              //   },
+              //   child: const Text(
+              //     'Tạo chuyến đi',
+              //     style: TextStyle(fontSize: 16.0, fontWeight: FontWeight.bold),
+              //   ),
+              // ),
+              IconButton(
+                  color: Colors.white,
+                  iconSize: 34,
+                  onPressed: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const CreateTrip()));
+                  },
+                  icon: const Icon(Icons.add))
             ],
             bottom: const TabBar(
               tabs: [
