@@ -14,7 +14,13 @@ class OnGoingTripPage extends StatelessWidget {
           destination: onGoingTripList[index].destination,
           time: onGoingTripList[index].time,
           date: onGoingTripList[index].date,
+          month: onGoingTripList[index].month,
+          year: onGoingTripList[index].year,
+          dayOfWeek: onGoingTripList[index].dayOfWeek,
           group: onGoingTripList[index].group,
+          periodTime: onGoingTripList[index].periodTime,
+          picture: onGoingTripList[index].picture,
+          tripName: onGoingTripList[index].tripName,
         );
       },
     );
