@@ -1,72 +1,139 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class TripCard extends StatelessWidget {
-  final String destination, time, date, group;
+  final String destination,
+      date,
+      month,
+      year,
+      dayOfWeek,
+      group,
+      time,
+      periodTime,
+      picture,
+      tripName;
 
-  const TripCard(
-      {Key? key,
-      required this.destination,
-      required this.time,
-      required this.date,
-      required this.group})
-      : super(key: key);
+  const TripCard({
+    Key? key,
+    required this.destination,
+    required this.date,
+    required this.month,
+    required this.year,
+    required this.dayOfWeek,
+    required this.group,
+    required this.time,
+    required this.periodTime,
+    required this.picture,
+    required this.tripName,
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 150,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 8.0),
-            height: 120,
-            width: double.infinity,
-            alignment: Alignment.centerLeft,
-            decoration: BoxDecoration(
-              border: Border.all(color: Colors.blueAccent),
-              borderRadius: const BorderRadius.all(Radius.circular(6.0)),
-            ),
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Text(destination + ' - ' + date,
-                    style: const TextStyle(
-                      fontSize: 20,
-                      fontWeight: FontWeight.bold,
-                      color: Colors.deepOrangeAccent,
-                    )),
-                Row(
-                  children: [
-                    TextButton(
-                      style: TextButton.styleFrom(
-                        padding: const EdgeInsets.all(16.0),
-                        primary: Colors.blueAccent,
-                        textStyle: const TextStyle(fontSize: 16),
+    return InkWell(
+      child: Container(
+        margin: const EdgeInsets.all(4.0),
+        padding: const EdgeInsets.all(4.0),
+        decoration: BoxDecoration(
+            border: Border.all(color: Colors.blueAccent),
+            borderRadius: BorderRadius.circular(8.0)),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 4.0, horizontal: 4.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(vertical: 4.0),
+                child: Text(
+                  "Tháng " + month + " " + year,
+                  style: const TextStyle(
+                    fontSize: 20.0,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Column(
+                    children: [
+                      Text(dayOfWeek,
+                          style: const TextStyle(
+                            fontSize: 16.0,
+                            color: Colors.black54,
+                            fontWeight: FontWeight.bold,
+                          )),
+                      Text(date,
+                          style: const TextStyle(
+                            fontSize: 16.0,
+                            color: Colors.black54,
+                            fontWeight: FontWeight.bold,
+                          )),
+                    ],
+                  ),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Image(
+                        image: AssetImage(picture),
+                        width: 340,
+                        height: 170,
+                        fit: BoxFit.cover,
                       ),
-                      onPressed: () {},
-                      child: const Text('Accept',
-                          style: TextStyle(
-                              fontSize: 20, fontWeight: FontWeight.bold)),
-                    ),
-                    TextButton(
-                      style: TextButton.styleFrom(
-                        padding: const EdgeInsets.all(16.0),
-                        primary: Colors.blueAccent,
-                        textStyle: const TextStyle(fontSize: 16),
+                      SizedBox(
+                        width: 340,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  tripName,
+                                  style: const TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 16.0,
+                                    fontWeight: FontWeight.bold,
+                                  ),
+                                ),
+                                Text(
+                                  periodTime + " ngày",
+                                  style: const TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 16.0,
+                                  ),
+                                ),
+                              ],
+                            ),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.end,
+                              children: [
+                                const Text(
+                                  "Điểm đến",
+                                  style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 16.0,
+                                  ),
+                                ),
+                                Text(destination,
+                                    style: const TextStyle(
+                                      fontSize: 16.0,
+                                      fontWeight: FontWeight.bold,
+                                    )),
+                              ],
+                            ),
+                          ],
+                        ),
                       ),
-                      onPressed: null,
-                      child: const Text('Start'),
-                    )
-                  ],
-                )
-              ],
-            ),
-          )
-        ],
+                    ],
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
       ),
+      onTap: () {
+        print("Tapped ongoin trip");
+      },
     );
   }
 }

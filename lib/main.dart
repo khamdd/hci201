@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:hci201/pages/login.dart';
-import 'package:dcdg/dcdg.dart';
 
 void main() {
   runApp(const MyApp());
