@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:hci201/component/allTripDetail.dart';
 
 class TripCard extends StatelessWidget {
   final String destination,
@@ -132,7 +133,15 @@ class TripCard extends StatelessWidget {
         ),
       ),
       onTap: () {
-        print("Tapped ongoin trip");
+        Navigator.push(context, MaterialPageRoute(builder: (context) {
+          return AllTripDetail(
+              destination: destination,
+              date: date,
+              month: month,
+              dayOfWeek: dayOfWeek,
+              time: time,
+              address: "address");
+        }));
       },
     );
   }
