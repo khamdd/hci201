@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:hci201/component/memberList.dart';
 import 'package:intl/intl.dart';
 
 class CreateTrip extends StatefulWidget {
