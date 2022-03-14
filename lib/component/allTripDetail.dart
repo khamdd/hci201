@@ -88,6 +88,7 @@ class AllTripDetail extends StatelessWidget {
                     date: occurringTripList[index].date,
                     dayOfWeek: occurringTripList[index].dayOfWeek,
                     address: occurringTripList[index].address,
+                    picture: occurringTripList[index].picture,
                   );
                 },
               ),
@@ -139,6 +140,7 @@ class AllTripDetail extends StatelessWidget {
                     date: occurringTripList[index].date,
                     dayOfWeek: occurringTripList[index].dayOfWeek,
                     address: occurringTripList[index].address,
+                    picture: occurringTripList[index].picture,
                   );
                 },
               ),
@@ -190,6 +192,7 @@ class AllTripDetail extends StatelessWidget {
                     date: occurringTripList[index].date,
                     dayOfWeek: occurringTripList[index].dayOfWeek,
                     address: occurringTripList[index].address,
+                    picture: occurringTripList[index].picture,
                   );
                 },
               ),

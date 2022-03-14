@@ -146,94 +146,9 @@ class _CreateTripState extends State<CreateTrip> {
                     )),
               ],
             ),
-            // Row(
-            //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            //   children: [
-            //     const Text(
-            //       "Thời gian:",
-            //       style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
-            //     ),
-            //     SizedBox(
-            //       width: 200,
-            //       child: ElevatedButton(
-            //         onPressed: () {
-            //           showTimePicker(
-            //             context: context,
-            //             initialTime: pickedTime ?? initialTime,
-            //           ).then((time) {
-            //             setState(() {
-            //               if (time != null) {
-            //                 initialTime = time;
-            //                 pickedTime = time;
-            //               }
-            //               formattedTime = pickedTime == null
-            //                   ? initialTime.format(context)
-            //                   : pickedTime!.format(context);
-            //             });
-            //           });
-            //         },
-            //         child: Text(formattedTime ?? "Chọn thời gian"),
-            //       ),
-            //     ),
-            //   ],
-            // ),
             const SizedBox(
               height: 12.0,
             ),
-            // Row(
-            //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            //   children: [
-            //     const Text(
-            //       "Thành viên:",
-            //       style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
-            //     ),
-            //     Container(
-            //       height: 40.0,
-            //       width: 200,
-            //       decoration: const BoxDecoration(
-            //           color: Colors.blue,
-            //           borderRadius: BorderRadius.all(Radius.circular(5.0))),
-            //       child: Center(
-            //         child: InkWell(
-            //           child: const Text(
-            //             "Thành viên",
-            //             style: TextStyle(
-            //                 color: Colors.white, fontWeight: FontWeight.bold),
-            //           ),
-            //           onTap: () {
-            //             Navigator.push(context,
-            //                 MaterialPageRoute(builder: (context) {
-            //               return const MemberList();
-            //             }));
-            //           },
-            //         ),
-            //       ),
-            // Row(
-            //   mainAxisAlignment: MainAxisAlignment.end,
-            //   children: [
-            //     const Text(
-            //       "Thành viên",
-            //       style: TextStyle(
-            //           color: Colors.white, fontWeight: FontWeight.bold),
-            //     ),
-            //     IconButton(
-            //       onPressed: () {
-            // Navigator.push(context,
-            //     MaterialPageRoute(builder: (context) {
-            //   return const MemberList();
-            // }));
-            //       },
-            //       icon: const Icon(Icons.add),
-            //       color: Colors.white,
-            //     )
-            //   ],
-            // ),
-            //     )
-            //   ],
-            // ),
-            // const SizedBox(
-            //   height: 12.0,
-            // ),
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: const [

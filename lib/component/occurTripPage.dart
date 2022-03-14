@@ -58,6 +58,7 @@ class HasTrip extends StatelessWidget {
       month: occurringTripList[0].month,
       dayOfWeek: occurringTripList[0].dayOfWeek,
       address: occurringTripList[0].address,
+      picture: occurringTripList[0].picture,
     );
     // return Column(
     //   children: [

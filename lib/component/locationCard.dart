@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class LocationCard extends StatelessWidget {
-  final String destination, date, dayOfWeek, address, time;
+  final String destination, date, dayOfWeek, address, time, picture;
 
   const LocationCard({
     Key? key,
@@ -10,6 +10,7 @@ class LocationCard extends StatelessWidget {
     required this.dayOfWeek,
     required this.time,
     required this.address,
+    required this.picture,
   }) : super(key: key);
 
   @override
@@ -23,7 +24,7 @@ class LocationCard extends StatelessWidget {
         child: Row(
           children: [
             Image.asset(
-              "assets/images/phongnha.jpg",
+              picture,
               fit: BoxFit.cover,
               width: 80,
               height: 80,
@@ -102,7 +103,7 @@ class LocationCard extends StatelessWidget {
                                       child: Row(
                                         children: [
                                           Image.asset(
-                                            "assets/images/phongnha.jpg",
+                                            picture,
                                             fit: BoxFit.cover,
                                             width: 80,
                                             height: 80,

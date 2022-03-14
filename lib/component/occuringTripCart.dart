@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class OccuringTripCard extends StatelessWidget {
-  final String destination, date, dayOfWeek, address, time;
+  final String destination, date, dayOfWeek, address, time, picture;
 
   const OccuringTripCard({
     Key? key,
@@ -10,6 +10,7 @@ class OccuringTripCard extends StatelessWidget {
     required this.dayOfWeek,
     required this.time,
     required this.address,
+    required this.picture,
   }) : super(key: key);
 
   @override
@@ -29,7 +30,7 @@ class OccuringTripCard extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 Image.asset(
-                  "assets/images/phongnha.jpg",
+                  picture,
                   fit: BoxFit.cover,
                   width: 80,
                   height: 80,
