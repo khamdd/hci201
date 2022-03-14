@@ -4,7 +4,7 @@ import 'package:hci201/component/occuringTripCart.dart';
 import 'package:hci201/component/occurringTripLocationList.dart';
 
 class TripDetail extends StatelessWidget {
-  final String destination, date, month, dayOfWeek, time, address;
+  final String destination, date, month, dayOfWeek, time, address, picture;
 
   const TripDetail({
     Key? key,
@@ -14,6 +14,7 @@ class TripDetail extends StatelessWidget {
     required this.dayOfWeek,
     required this.time,
     required this.address,
+    required this.picture,
   }) : super(key: key);
 
   @override
@@ -64,6 +65,7 @@ class TripDetail extends StatelessWidget {
                 date: occurringTripList[index].date,
                 dayOfWeek: occurringTripList[index].dayOfWeek,
                 address: occurringTripList[index].address,
+                picture: occurringTripList[index].picture,
               );
             },
           ),

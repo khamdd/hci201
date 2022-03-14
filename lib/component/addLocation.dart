@@ -31,6 +31,7 @@ class _AddLocationState extends State<AddLocation> {
                   date: occurringTripList[index].date,
                   dayOfWeek: occurringTripList[index].dayOfWeek,
                   address: occurringTripList[index].address,
+                  picture: occurringTripList[index].picture
                 );
               },
             ),
