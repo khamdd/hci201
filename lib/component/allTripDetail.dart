@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:hci201/component/addLocation.dart';
+import 'package:hci201/component/editingOccurringTripCard.dart';
 import 'package:hci201/component/memberList.dart';
 import 'package:hci201/component/occuringTripCart.dart';
 import 'package:hci201/component/occurringTripLocationList.dart';
 
-class AllTripDetail extends StatelessWidget {
+class AllTripDetail extends StatefulWidget {
   final String destination, date, month, dayOfWeek, time, address;
 
   const AllTripDetail({
@@ -16,6 +17,15 @@ class AllTripDetail extends StatelessWidget {
     required this.time,
     required this.address,
   }) : super(key: key);
+
+  @override
+  State<AllTripDetail> createState() => _AllTripDetailState();
+}
+
+class _AllTripDetailState extends State<AllTripDetail> {
+  bool isEditing1 = false;
+  bool isEditing2 = false;
+  bool isEditing3 = false;
 
   @override
   Widget build(BuildContext context) {
@@ -43,14 +53,19 @@ class AllTripDetail extends StatelessWidget {
             ),
             Container(
               decoration: BoxDecoration(color: Colors.blue[100]),
-              padding:
-                  const EdgeInsets.symmetric(vertical: 4.0, horizontal: 8.0),
+              padding: const EdgeInsets.only(top: 4, bottom: 4, left: 6),
               child: Row(
                 children: [
                   Text(
-                    "Ngày 1 (" + dayOfWeek + ", " + date + "/" + month + ")",
+                    "Ngày 1 (" +
+                        widget.dayOfWeek +
+                        ", " +
+                        widget.date +
+                        "/" +
+                        widget.month +
+                        ")",
                     style: const TextStyle(
-                      fontSize: 20.0,
+                      fontSize: 18.0,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -59,9 +74,21 @@ class AllTripDetail extends StatelessWidget {
                     child: Text(
                       "3 địa điểm",
                       style: TextStyle(
-                        fontSize: 20.0,
+                        fontSize: 18.0,
                       ),
                     ),
+                  ),
+                  IconButton(
+                    onPressed: () {
+                      setState(() {
+                        isEditing1 = !isEditing1;
+                      });
+                    },
+                    icon: isEditing1
+                        ? const Icon(Icons.check_circle_outline)
+                        : const Icon(Icons.edit),
+                    color: Colors.blue,
+                    iconSize: 24.0,
                   ),
                   IconButton(
                     onPressed: () {
@@ -72,7 +99,7 @@ class AllTripDetail extends StatelessWidget {
                     },
                     icon: const Icon(Icons.add_circle_outline_rounded),
                     color: Colors.blue,
-                    iconSize: 32.0,
+                    iconSize: 24.0,
                   ),
                 ],
               ),
@@ -82,14 +109,23 @@ class AllTripDetail extends StatelessWidget {
               child: ListView.builder(
                 itemCount: occurringTripList.length,
                 itemBuilder: (BuildContext context, int index) {
-                  return OccuringTripCard(
-                    destination: occurringTripList[index].destination,
-                    time: occurringTripList[index].time,
-                    date: occurringTripList[index].date,
-                    dayOfWeek: occurringTripList[index].dayOfWeek,
-                    address: occurringTripList[index].address,
-                    picture: occurringTripList[index].picture,
-                  );
+                  return isEditing1
+                      ? EditingOccurringTripCard(
+                          destination: occurringTripList[index].destination,
+                          time: occurringTripList[index].time,
+                          date: occurringTripList[index].date,
+                          dayOfWeek: occurringTripList[index].dayOfWeek,
+                          address: occurringTripList[index].address,
+                          picture: occurringTripList[index].picture,
+                        )
+                      : OccuringTripCard(
+                          destination: occurringTripList[index].destination,
+                          time: occurringTripList[index].time,
+                          date: occurringTripList[index].date,
+                          dayOfWeek: occurringTripList[index].dayOfWeek,
+                          address: occurringTripList[index].address,
+                          picture: occurringTripList[index].picture,
+                        );
                 },
               ),
             ),
@@ -102,7 +138,7 @@ class AllTripDetail extends StatelessWidget {
                   const Text(
                     "Ngày 2 (Thứ 5, 13/4)",
                     style: TextStyle(
-                      fontSize: 20.0,
+                      fontSize: 18.0,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -111,9 +147,21 @@ class AllTripDetail extends StatelessWidget {
                     child: Text(
                       "3 địa điểm",
                       style: TextStyle(
-                        fontSize: 20.0,
+                        fontSize: 18.0,
                       ),
                     ),
+                  ),
+                  IconButton(
+                    onPressed: () {
+                      setState(() {
+                        isEditing2 = !isEditing2;
+                      });
+                    },
+                    icon: isEditing2
+                        ? const Icon(Icons.check_circle_outline)
+                        : const Icon(Icons.edit),
+                    color: Colors.blue,
+                    iconSize: 24.0,
                   ),
                   IconButton(
                     onPressed: () {
@@ -134,14 +182,23 @@ class AllTripDetail extends StatelessWidget {
               child: ListView.builder(
                 itemCount: occurringTripList.length,
                 itemBuilder: (BuildContext context, int index) {
-                  return OccuringTripCard(
-                    destination: occurringTripList[index].destination,
-                    time: occurringTripList[index].time,
-                    date: occurringTripList[index].date,
-                    dayOfWeek: occurringTripList[index].dayOfWeek,
-                    address: occurringTripList[index].address,
-                    picture: occurringTripList[index].picture,
-                  );
+                  return isEditing2
+                      ? EditingOccurringTripCard(
+                          destination: occurringTripList[index].destination,
+                          time: occurringTripList[index].time,
+                          date: occurringTripList[index].date,
+                          dayOfWeek: occurringTripList[index].dayOfWeek,
+                          address: occurringTripList[index].address,
+                          picture: occurringTripList[index].picture,
+                        )
+                      : OccuringTripCard(
+                          destination: occurringTripList[index].destination,
+                          time: occurringTripList[index].time,
+                          date: occurringTripList[index].date,
+                          dayOfWeek: occurringTripList[index].dayOfWeek,
+                          address: occurringTripList[index].address,
+                          picture: occurringTripList[index].picture,
+                        );
                 },
               ),
             ),
@@ -154,7 +211,7 @@ class AllTripDetail extends StatelessWidget {
                   const Text(
                     "Ngày 3 (Thứ 6, 14/4)",
                     style: TextStyle(
-                      fontSize: 20.0,
+                      fontSize: 18.0,
                       fontWeight: FontWeight.bold,
                     ),
                   ),
@@ -163,9 +220,21 @@ class AllTripDetail extends StatelessWidget {
                     child: Text(
                       "3 địa điểm",
                       style: TextStyle(
-                        fontSize: 20.0,
+                        fontSize: 18.0,
                       ),
                     ),
+                  ),
+                  IconButton(
+                    onPressed: () {
+                      setState(() {
+                        isEditing3 = !isEditing3;
+                      });
+                    },
+                    icon: isEditing3
+                        ? const Icon(Icons.check_circle_outline)
+                        : const Icon(Icons.edit),
+                    color: Colors.blue,
+                    iconSize: 24.0,
                   ),
                   IconButton(
                     onPressed: () {
@@ -186,48 +255,29 @@ class AllTripDetail extends StatelessWidget {
               child: ListView.builder(
                 itemCount: occurringTripList.length,
                 itemBuilder: (BuildContext context, int index) {
-                  return OccuringTripCard(
-                    destination: occurringTripList[index].destination,
-                    time: occurringTripList[index].time,
-                    date: occurringTripList[index].date,
-                    dayOfWeek: occurringTripList[index].dayOfWeek,
-                    address: occurringTripList[index].address,
-                    picture: occurringTripList[index].picture,
-                  );
+                  return isEditing3
+                      ? EditingOccurringTripCard(
+                          destination: occurringTripList[index].destination,
+                          time: occurringTripList[index].time,
+                          date: occurringTripList[index].date,
+                          dayOfWeek: occurringTripList[index].dayOfWeek,
+                          address: occurringTripList[index].address,
+                          picture: occurringTripList[index].picture,
+                        )
+                      : OccuringTripCard(
+                          destination: occurringTripList[index].destination,
+                          time: occurringTripList[index].time,
+                          date: occurringTripList[index].date,
+                          dayOfWeek: occurringTripList[index].dayOfWeek,
+                          address: occurringTripList[index].address,
+                          picture: occurringTripList[index].picture,
+                        );
                 },
               ),
             ),
             const SizedBox(
               height: 24.0,
             )
-            // Center(
-            //   child: OutlinedButton(
-            //     onPressed: () {
-            //       Navigator.push(context, MaterialPageRoute(builder: (context) {
-            //         return const MemberList();
-            //       }));
-            //     },
-            //     style: ButtonStyle(
-            //       side: MaterialStateProperty.all(const BorderSide(
-            //           color: Colors.blue,
-            //           width: 1.0,
-            //           style: BorderStyle.solid)),
-            //       shape: MaterialStateProperty.all(
-            //         RoundedRectangleBorder(
-            //           borderRadius: BorderRadius.circular(30.0),
-            //         ),
-            //       ),
-            //     ),
-            //     child: const SizedBox(
-            //       child: Center(child: Text("Thành viên")),
-            //       width: 200.0,
-            //       height: 50.0,
-            //     ),
-            //   ),
-            // ),
-            // const SizedBox(
-            //   height: 20.0,
-            // )
           ],
         ),
       ),

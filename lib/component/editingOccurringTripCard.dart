@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-class OccuringTripCard extends StatefulWidget {
+class EditingOccurringTripCard extends StatefulWidget {
   final String destination, date, dayOfWeek, address, time, picture;
 
-  const OccuringTripCard({
+  const EditingOccurringTripCard({
     Key? key,
     required this.destination,
     required this.date,
@@ -14,12 +14,47 @@ class OccuringTripCard extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  State<OccuringTripCard> createState() => _OccuringTripCardState();
+  State<EditingOccurringTripCard> createState() =>
+      _EditingOccurringTripCardState();
 }
 
-class _OccuringTripCardState extends State<OccuringTripCard> {
-  double contWidth = 340.0;
-  bool isEditing = false;
+class _EditingOccurringTripCardState extends State<EditingOccurringTripCard> {
+  Future<void> _displayTextInputDialog(BuildContext context) async {
+    return showDialog(
+        context: context,
+        builder: (context) {
+          return AlertDialog(
+            title: const Text("Bạn có chắc muốn xóa địa điểm này?"),
+            actions: <Widget>[
+              FlatButton(
+                color: Colors.red,
+                textColor: Colors.white,
+                child: const Text('CANCEL'),
+                onPressed: () {
+                  setState(() {
+                    Navigator.pop(context);
+                  });
+                },
+              ),
+              FlatButton(
+                color: Colors.green,
+                textColor: Colors.white,
+                child: const Text('OK'),
+                onPressed: () {
+                  setState(() {
+                    codeDialog = valueText;
+                    Navigator.pop(context);
+                  });
+                },
+              ),
+            ],
+          );
+        });
+  }
+
+  String? codeDialog;
+  String? valueText;
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -30,7 +65,7 @@ class _OccuringTripCardState extends State<OccuringTripCard> {
               width: 52.0,
               child: Text(widget.time, style: const TextStyle(fontSize: 16.0))),
           Container(
-            width: contWidth,
+            width: 290,
             decoration: BoxDecoration(
                 border: Border.all(color: Colors.blueAccent),
                 borderRadius: BorderRadius.circular(8.0)),
@@ -65,6 +100,16 @@ class _OccuringTripCardState extends State<OccuringTripCard> {
                   ),
                 )
               ],
+            ),
+          ),
+          SizedBox(
+            width: 20.0,
+            child: IconButton(
+              onPressed: () {
+                _displayTextInputDialog(context);
+              },
+              icon: const Icon(Icons.cancel),
+              color: Colors.red[700],
             ),
           ),
         ],

@@ -3,9 +3,6 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'package:hci201/component/reportProblem.dart';
-import 'package:hci201/model/chatMessageModel.dart';
-import 'package:hci201/pages/chatDetailPage.dart';
-import 'package:hci201/pages/chatPage.dart';
 import 'package:material_floating_search_bar/material_floating_search_bar.dart';
 
 class HomePage extends StatelessWidget {
@@ -25,6 +22,11 @@ class MapSample extends StatefulWidget {
 }
 
 class MapSampleState extends State<MapSample> {
+  @override
+  void initState() {
+    super.initState();
+  }
+
   final Completer<GoogleMapController> _controller = Completer();
 
   static const Marker _kGooglePlexMarker = Marker(
@@ -97,7 +99,7 @@ class MapSampleState extends State<MapSample> {
           GoogleMap(
             mapType: MapType.terrain,
             markers: {_kGooglePlexMarker, _member1, _member2, _member3},
-            polylines: {_m1, _m2, _m3},
+            // polylines: {_m1, _m2, _m3},
             initialCameraPosition: _kGooglePlex,
             onMapCreated: (GoogleMapController controller) {
               _controller.complete(controller);
@@ -119,7 +121,7 @@ class MapSampleState extends State<MapSample> {
           //   );
           // }));
           Navigator.push(context, MaterialPageRoute(builder: (context) {
-            return ReportProblem();
+            return const ReportProblem();
           }));
         },
         label: const Text('Báo cáo sự cố'),
