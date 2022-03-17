@@ -119,21 +119,30 @@ class _ReportProblemState extends State<ReportProblem> {
             //         : null),
             Column(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: const [
-                Text(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                const Text(
                   "Mô tả sự cố: ",
                   style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
                 ),
                 SizedBox(
-                    height: 40,
-                    width: 200,
-                    child: TextField(
+                  width: double.infinity,
+                  // child: TextField(
+                  //   maxLines: 8,
+                  //   decoration: InputDecoration(
+                  //     filled: true,
+                  //     labelText: 'Nhập mô tả...',
+                  //   ),
+                  // ),
+                  child: Container(
+                    decoration: BoxDecoration(border: Border.all(width: 1.0)),
+                    child: TextFormField(
+                      minLines: 4,
+                      keyboardType: TextInputType.multiline,
                       maxLines: 8,
-                      decoration: InputDecoration(
-                        filled: true,
-                        labelText: 'Nhập mô tả...',
-                      ),
-                    )),
+                    ),
+                  ),
+                ),
               ],
             ),
             const SizedBox(
