@@ -145,6 +145,22 @@ class _ReportProblemState extends State<ReportProblem> {
                 ),
               ],
             ),
+            const SizedBox(height: 8.0),
+            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
+              const Text(
+                "Chọn tệp mô tả: ",
+                style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+              ),
+              Row(children: [
+                IconButton(
+                  onPressed: () {}, icon: Icon(Icons.camera_alt),
+                ),
+                IconButton(
+                  onPressed: () {}, icon: Icon(Icons.video_call_outlined),
+                )
+              ]),
+            ]),
+
             const SizedBox(
               height: 12.0,
             ),
